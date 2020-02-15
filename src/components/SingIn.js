@@ -33,7 +33,7 @@ class SignIn extends Component {
                         <div style={{fontSize: 22, fontWeight: "bold"}}>Welcome to the Would You Rather App!</div>
                         <div>Please Sign in to continue</div>
                     </div>
-                    <img src={logo}></img>
+                    <img src={logo} alt="react sign in icon"></img>
                     <div style={{color: "green", fontWeight: "bold", fontSize: 22}}>Sign In</div>
                     <ReactDropdown options={this.users}
                                    placeholder={this.props.authedUser ? this.props.authedUser.label : 'Please sign in as user'}

@@ -24,6 +24,8 @@ class NavBar extends Component {
                 {this.props.authedUser ?
                     (<div className="NavBody">
                         <div className="NavItem">{this.props.authedUser.label}</div>
+                        <img src={this.props.users[this.props.authedUser.value].avatarURL} className="NavImage"
+                             alt="profile"></img>
                         <div className="NavItem" onClick={this.logout}>Logout</div>
                     </div>) : null
                 }
@@ -32,9 +34,9 @@ class NavBar extends Component {
     }
 }
 
-function mapStateToProps({authedUser}) {
+function mapStateToProps({authedUser, users}) {
     return {
-        authedUser
+        authedUser, users
     }
 }
 

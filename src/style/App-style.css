@@ -31,12 +31,24 @@
     flex: 1;
     padding: 2%;
     align-self: center;
+    text-align: center;
     color: #61dafb;
+}
+
+.NavImage {
+    margin: 1%;
+    flex: 1;
+    padding: 2%;
+    align-self: center;
+    color: #61dafb;
+    height: 50px;
+    border-radius: 30px;
 }
 
 .ActiveLink {
     background-color: #61dafb;
     color: white;
+    align-self: center;
 }
 
 .Content {

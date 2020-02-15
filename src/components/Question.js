@@ -14,7 +14,7 @@ class Question extends Component {
                     {author.name + " asks"}
                 </div>
                 <div className="Question-Body">
-                    <img src={author.avatarURL} style={{width: 100, height: 100, padding: 20}}></img>
+                    <img src={author.avatarURL} style={{width: 100, height: 100, padding: 20}} alt="author"></img>
                     <div className="Question-Text-Body">
                         <div style={{padding: 10}}>Would you Rather</div>
                         <div style={{padding: 10}}> {"..." + question.optionOne.text.slice(0, 10) + "..."}</div>
