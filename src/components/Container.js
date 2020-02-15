@@ -2,10 +2,21 @@ import React, {Component} from "react";
 import '../style/App-style.css'
 import NavBar from "./NavBar";
 import SignIn from "./SingIn";
+import {connect} from "react-redux";
+import {Route} from 'react-router-dom';
+import UserHome from "./UserHome";
+import {handleInitialData} from "../actions/shared";
 
-export default class Container extends Component {
+class Container extends Component {
+
+    componentDidMount() {
+        this.props.dispatch(handleInitialData())
+    }
 
     render() {
+        console.log("I am coming from container");
+        console.log(this.props);
+        console.log("***************");
         return (
             <div className="Container">
                 <div className="Header">
@@ -17,9 +28,24 @@ export default class Container extends Component {
                     <NavBar></NavBar>
                 </div>
                 <div className="Content">
-                    <SignIn></SignIn>
+                    <Route exact path="/"
+                           render={() => (this.props.authedUser ? <UserHome></UserHome> : <SignIn></SignIn>)}/>
+                    <Route exact path="/new_question"
+                           render={() => (this.props.authedUser ? <UserHome></UserHome> : <SignIn></SignIn>)}/>
+                    <Route exact path="/leader_board"
+                           render={() => (this.props.authedUser ? <UserHome></UserHome> : <SignIn></SignIn>)}/>
                 </div>
             </div>
         )
     }
 }
+
+function mapStateToProps({authedUser, users}) {
+    return {
+        authedUser,
+        users
+    }
+}
+
+
+export default connect(mapStateToProps)(Container)

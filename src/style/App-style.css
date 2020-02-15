@@ -58,3 +58,45 @@
     background-color: lightgray;
     padding: 1%;
 }
+
+.User-Header {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
+
+}
+
+.Question-List {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-inline-start: 0;
+
+}
+
+.Question-Container {
+    border-width: 2px;
+    border-color: #282c34;
+    align-self: center;
+    padding: 10px;
+
+}
+
+.Question-Header {
+    background-color: lightgray;
+}
+
+.Question-Body {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+}
+
+.Question-Text-Body {
+    padding: 20px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
