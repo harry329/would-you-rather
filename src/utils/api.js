@@ -1,4 +1,4 @@
-import {_getQuestions, _getUsers} from "./_DATA";
+import {_getQuestions, _getUsers, _saveQuestionAnswer} from "./_DATA";
 
 
 export function getInitialData() {
@@ -10,6 +10,10 @@ export function getInitialData() {
         questions
     }))
 
+}
+
+export function saveQuestionAnswer(info) {
+    return _saveQuestionAnswer(info)
 }
 
 

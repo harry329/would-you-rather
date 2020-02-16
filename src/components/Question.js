@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
+import {Link} from "react-router-dom";
 
 class Question extends Component {
 
@@ -18,7 +19,7 @@ class Question extends Component {
                     <div className="Question-Text-Body">
                         <div style={{padding: 10}}>Would you Rather</div>
                         <div style={{padding: 10}}> {"..." + question.optionOne.text.slice(0, 10) + "..."}</div>
-                        <button style={{padding: 5}}>View Poll</button>
+                        <button style={{padding: 5}}><Link to={`/question/${this.props.id}`}>View Poll </Link></button>
                     </div>
                 </div>
             </div>

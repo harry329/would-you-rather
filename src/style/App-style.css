@@ -37,11 +37,11 @@
 
 .NavImage {
     margin: 1%;
-    flex: 1;
     padding: 2%;
     align-self: center;
     color: #61dafb;
     height: 50px;
+    width: 50px;
     border-radius: 30px;
 }
 
@@ -111,4 +111,41 @@
     display: flex;
     flex: 1;
     flex-direction: column;
+}
+
+.Question-Answer-Body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.Question-Answer-Body-Header {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.Question-Answer-Body-Image {
+    align-self: center;
+    width: 100px;
+    border-radius: 50px;
+}
+
+.Question-Answer-Body-Image-Text {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+}
+
+.Question-Answer-Body-Text {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 10px;
+    height: 100px;
+    justify-content: space-between;
+}
+
+.Question-Answer-Body-Text-Form {
+    justify-content: space-between;
 }

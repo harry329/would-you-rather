@@ -1,6 +1,6 @@
-import {getInitialData} from "../utils/api";
-import {receiveUsers} from "./users";
-import {receiveQuestions} from "./questions";
+import {getInitialData, saveQuestionAnswer} from "../utils/api";
+import {addAnswerToUser, receiveUsers} from "./users";
+import {addAnswerToQuestion, receiveQuestions} from "./questions";
 
 export function handleInitialData() {
     return (dispatch) => {
@@ -11,4 +11,14 @@ export function handleInitialData() {
             })
     }
 
+}
+
+export function saveAnswerToQuestion(info) {
+    return (dispatch) => {
+        return saveQuestionAnswer(info)
+            .then(() => {
+                dispatch(addAnswerToQuestion(info));
+                dispatch(addAnswerToUser(info))
+            })
+    }
 }

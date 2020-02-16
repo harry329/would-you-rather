@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import {Route} from 'react-router-dom';
 import UserHome from "./UserHome";
 import {handleInitialData} from "../actions/shared";
+import QuestionAnswer from "./QuestionAnswer";
 
 class Container extends Component {
 
@@ -34,6 +35,7 @@ class Container extends Component {
                            render={() => (this.props.authedUser ? <UserHome></UserHome> : <SignIn></SignIn>)}/>
                     <Route exact path="/leader_board"
                            render={() => (this.props.authedUser ? <UserHome></UserHome> : <SignIn></SignIn>)}/>
+                    <Route exact path="/question/:id" component={this.props.authedUser ? QuestionAnswer : SignIn}/>
                 </div>
             </div>
         )
