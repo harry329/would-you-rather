@@ -31,12 +31,14 @@ class QuestionAnswer extends Component {
     };
 
     render() {
+        console.log("I am coming from question anser");
+        console.log(this.props);
         const questionId = this.props.match.params.id;
         const {authedUser, users, questions} = this.props;
         const answeredQuestion = users[authedUser.value].answers;
         const answeredQuestionList = Object.keys(answeredQuestion);
-        const aswOrUnans = answeredQuestionList.find(questions => questions === questionId) ? true : false;
-        const ansOption = aswOrUnans ? answeredQuestion[questionId] : undefined;
+        const answered = answeredQuestionList.find(questions => questions === questionId) ? true : false;
+        const ansOption = answered ? answeredQuestion[questionId] : undefined;
         const optionOneShown = ansOption === 'optionOne' ? ' , & you have voted for this option.' : '.';
         const optionTwoShown = ansOption === 'optionTwo' ? ' , & you have voted for this option.' : '.';
         const question = questions[questionId];
@@ -53,7 +55,7 @@ class QuestionAnswer extends Component {
                 <div className="Question-Answer-Body-Header">{questionAuthorName + ' has asked :'} </div>
                 <div className="Question-Answer-Body-Image-Text">
                     <img src={questionAuthorURL} alt='author' className="Question-Answer-Body-Image"/>
-                    {aswOrUnans ? (<div className="Question-Answer-Body-Text">
+                    {answered ? (<div className="Question-Answer-Body-Text">
                         <div> Results</div>
                         <form className="Question-Answer-Body-Text">
                             <div>

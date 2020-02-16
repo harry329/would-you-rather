@@ -6,7 +6,7 @@ class UserHome extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {answered: true}
+        this.state = {answered: false}
     }
 
     answeredList = (ans) => {
@@ -19,8 +19,8 @@ class UserHome extends Component {
     render() {
         console.log("I am coming from UserHome");
         console.log(this.props);
-        const ansList = Object.keys(this.props.users[this.props.authedUser.value].answers);
-        const allQuestions = Object.keys(this.props.questions);
+        const ansList = Object.keys(this.props.users[this.props.authedUser.value].answers).reverse();
+        const allQuestions = this.props.questions2;
         // const notAns = this.props.questions.map(question => question  ansList)
         console.log(ansList);
         console.log(allQuestions);
@@ -29,8 +29,8 @@ class UserHome extends Component {
         return (
             <div>
                 <div className="User-Header">
-                    <button onClick={() => this.answeredList(true)}>Answered Question</button>
                     <button onClick={() => this.answeredList(false)}>UnAnswered Question</button>
+                    <button onClick={() => this.answeredList(true)}>Answered Question</button>
                 </div>
                 {this.state.answered ? <QuestionList list={ansList}></QuestionList> :
                     <QuestionList list={nonAnsweredList}></QuestionList>}
@@ -41,10 +41,11 @@ class UserHome extends Component {
 }
 
 function mapStateToProps({authedUser, users, questions}) {
+    const questions2 = Object.keys(questions).sort((a, b) => questions[b].timestamp - questions[a].timestamp);
     return {
         authedUser,
         users,
-        questions
+        questions2
     }
 }
 

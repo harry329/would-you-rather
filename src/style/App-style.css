@@ -149,3 +149,84 @@
 .Question-Answer-Body-Text-Form {
     justify-content: space-between;
 }
+
+.New-Question-Container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.New-Question-Header {
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+
+.New-Question-Body {
+    align-self: flex-start;
+    text-align: left;
+    font-size: 16px;
+}
+
+
+.New-Question-Body-Text {
+    margin: 5px;
+    margin-left: 0px;
+    padding: 5px;
+    padding-left: 0px;
+}
+
+.New-Question-Body-Form {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.New-Question-Body-Form-Input {
+    margin: 1px;
+    padding: 2px;
+}
+
+.New-Question-Body-Form-Button {
+    background-color: #61dafb;
+    color: white;
+}
+
+.LearderBoardItem {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    margin: 2px;
+    background-color: lightgray;
+}
+
+.LearderBoardItem-Image {
+    align-self: center;
+    width: 100px;
+    border-radius: 50px;
+}
+
+.LearderBoardItem-Text {
+    padding: 5px;
+    margin: 2px;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.LearderBoardItem-Text2 {
+    padding: 5px;
+    margin: 2px;
+    flex: 1;
+    text-align: right;
+    flex-direction: column;
+    justify-content: space-between;
+}

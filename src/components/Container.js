@@ -7,6 +7,8 @@ import {Route} from 'react-router-dom';
 import UserHome from "./UserHome";
 import {handleInitialData} from "../actions/shared";
 import QuestionAnswer from "./QuestionAnswer";
+import NewQuestion from "./NewQuestion";
+import LeaderBoardList from "./LeaderBoardList";
 
 class Container extends Component {
 
@@ -32,9 +34,10 @@ class Container extends Component {
                     <Route exact path="/"
                            render={() => (this.props.authedUser ? <UserHome></UserHome> : <SignIn></SignIn>)}/>
                     <Route exact path="/new_question"
-                           render={() => (this.props.authedUser ? <UserHome></UserHome> : <SignIn></SignIn>)}/>
+                           render={() => (this.props.authedUser ? <NewQuestion></NewQuestion> : <SignIn></SignIn>)}/>
                     <Route exact path="/leader_board"
-                           render={() => (this.props.authedUser ? <UserHome></UserHome> : <SignIn></SignIn>)}/>
+                           render={() => (this.props.authedUser ? <LeaderBoardList> </LeaderBoardList> :
+                               <SignIn></SignIn>)}/>
                     <Route exact path="/question/:id" component={this.props.authedUser ? QuestionAnswer : SignIn}/>
                 </div>
             </div>
