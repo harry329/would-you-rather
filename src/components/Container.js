@@ -3,7 +3,7 @@ import '../style/App-style.css'
 import NavBar from "./NavBar";
 import SignIn from "./SingIn";
 import {connect} from "react-redux";
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import UserHome from "./UserHome";
 import {handleInitialData} from "../actions/shared";
 import QuestionAnswer from "./QuestionAnswer";
@@ -13,6 +13,7 @@ import LeaderBoardList from "./LeaderBoardList";
 class Container extends Component {
 
     componentDidMount() {
+        console.log("I am mounting");
         this.props.dispatch(handleInitialData())
     }
 
@@ -31,14 +32,18 @@ class Container extends Component {
                     <NavBar></NavBar>
                 </div>
                 <div className="Content">
-                    <Route exact path="/"
-                           render={() => (this.props.authedUser ? <UserHome></UserHome> : <SignIn></SignIn>)}/>
-                    <Route exact path="/new_question"
-                           render={() => (this.props.authedUser ? <NewQuestion></NewQuestion> : <SignIn></SignIn>)}/>
-                    <Route exact path="/leader_board"
-                           render={() => (this.props.authedUser ? <LeaderBoardList> </LeaderBoardList> :
-                               <SignIn></SignIn>)}/>
-                    <Route exact path="/question/:id" component={this.props.authedUser ? QuestionAnswer : SignIn}/>
+                    <Switch>
+                        <Route exact path="/"
+                               render={() => (this.props.authedUser ? <UserHome></UserHome> : <SignIn></SignIn>)}/>
+                        <Route exact path="/new_question"
+                               render={() => (this.props.authedUser ? <NewQuestion></NewQuestion> :
+                                   <SignIn></SignIn>)}/>
+                        <Route exact path="/leader_board"
+                               render={() => (this.props.authedUser ? <LeaderBoardList> </LeaderBoardList> :
+                                   <SignIn></SignIn>)}/>
+                        <Route exact path="/question/:id" component={this.props.authedUser ? QuestionAnswer : SignIn}/>
+                        <Route exact path="/*" render={() => <div>This Page doesn't exist</div>}/>
+                    </Switch>
                 </div>
             </div>
         )

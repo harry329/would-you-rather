@@ -6,6 +6,13 @@ import {setAuthUser} from "../actions/authedUser";
 
 class SignIn extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            buttonDisabled: true
+        }
+    }
+
     users = [{value: 'sarahedo', label: 'Sarah Edo'}, {
         value: 'tylermcginnis',
         label: 'Tyler McGinnis'
@@ -16,7 +23,10 @@ class SignIn extends Component {
         console.log("Please sign in");
         console.log(e);
         console.log(this.props);
-        this.loginUser = e
+        this.loginUser = e;
+        this.setState({
+            buttonDisabled: false
+        })
     };
 
     signIn = () => {
@@ -39,7 +49,8 @@ class SignIn extends Component {
                                    placeholder={this.props.authedUser ? this.props.authedUser.label : 'Please sign in as user'}
                                    value={this.props.authedUser ? this.props.authedUser.label : 'Please sign in as user'}
                                    onChange={(e) => this.userPickUp(e)}></ReactDropdown>
-                    <button style={{background: "LightBlue", fontSize: 20, flex: 1}} onClick={this.signIn}>Sign In
+                    <button style={{background: "LightBlue", fontSize: 20, flex: 1}} onClick={this.signIn}
+                            disabled={this.state.buttonDisabled}>Sign In
                     </button>
                 </div>
 
