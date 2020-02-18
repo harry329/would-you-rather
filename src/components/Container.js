@@ -42,6 +42,7 @@ class Container extends Component {
                                render={() => (this.props.authedUser ? <LeaderBoardList> </LeaderBoardList> :
                                    <SignIn></SignIn>)}/>
                         <Route exact path="/question/:id" component={this.props.authedUser ? QuestionAnswer : SignIn}/>
+                        <Route exact path="/404" render={() => <div>This Page doesn't exist</div>}/>
                         <Route exact path="/*" render={() => <div>This Page doesn't exist</div>}/>
                     </Switch>
                 </div>

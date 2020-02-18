@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {saveAnswerToQuestion} from "../actions/shared";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 
 class QuestionAnswer extends Component {
 
@@ -42,6 +42,9 @@ class QuestionAnswer extends Component {
         const optionOneShown = ansOption === 'optionOne' ? ' , & you have voted for this option.' : '.';
         const optionTwoShown = ansOption === 'optionTwo' ? ' , & you have voted for this option.' : '.';
         const question = questions[questionId];
+        if (question === undefined) {
+            return <Redirect to="/404"/>
+        }
         const questionAuthorName = users[question.author].name;
         const questionAuthorURL = users[question.author].avatarURL;
         const optionOneVotes = question.optionOne.votes.length;
